@@ -1,0 +1,51 @@
+<div class="container">
+<p>
+Numero total de clientes atendidos por el banco durante una jornada
+</p>
+<button  mat-raised-button color="primary" (click)="getTotalClientsServed()">Consultar</button>
+<p>total: {{totalClientsServed}}</p>
+
+<p>
+    Selecciona el cajero de que deseas la informacion
+</p>
+<mat-form-field appearance="fill">
+<mat-select [(ngModel)]="cashierIdSelect" (selectionChange)="onSelectCashier()" >
+      <mat-option
+          *ngFor="let cashier of cashiersInfo"
+          [value]="cashier.cashierId">
+        {{ cashier.name }}
+      </mat-option>
+</mat-select>
+</mat-form-field>
+<p>
+    Numero total de clientes atendidos por cada cajero
+</p>
+<p>total: {{totalClientsCashier}}</p>
+
+<p>
+    Numero total de transacciones por cada cajero
+</p>
+<p>total: {{totalTransactionsCashier}}</p>
+<p>
+    Promedio de transacciones por cajero
+</p>
+<p>total: {{averageTrasactionCashier}}</p>
+
+<p>
+   Promedio de la transacciones del banco
+    </p>
+    <button  mat-raised-button color="primary" (click)="getAverageTransactionsBank()">Consultar</button>
+<p>total: {{averageTrasactionBanck}}</p>
+<p>
+   El cajero que realizo mas transacciones y su monto
+    </p>
+    <button mat-raised-button color="primary" (click)="getCashierByHighetsNumberTransactions()">Consultar</button>
+<p>El cajero es: {{cashierHighetsTransactions?.cashierName}}</p>
+<p>Su monto total es: {{cashierHighetsTransactions?.totalTransactions}}</p>
+<p>
+   El cajero que realizo menos transacciones y su monto
+    </p>
+    <button  mat-raised-button color="primary" (click)="getCashierByLeastNumberTransactions()">Consultar</button>
+<p>El cajero es: {{cashierLeastTransactions?.cashierName}}</p>
+<p>Su monto total es: {{cashierLeastTransactions?.totalTransactions}}</p>
+</div>
